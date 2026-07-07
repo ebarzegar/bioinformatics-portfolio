@@ -48,6 +48,24 @@ Three transcript variants of the human **TPI1** gene were identified.
 | NM_001159287.1 | NP_001152759.1 |triosephosphate isomerase isoform 2
 | NM_001258026.2 | NP_001244955.1 |triosephosphate isomerase isoform 3
 
+### SNPs
+
+Three SNPs associated with the TPI1 gene were selected from dbSNP.
+
+| SNP ID | Nucleotide Change |
+|--------|-------------------|
+| rs150585849 | G/T |
+| rs781864765 | C/T |
+| rs72661109 | G/A |
+
+### Pairwise Sequence Alignment
+
+Pairwise sequence alignment was performed for:
+
+- Two transcript variants of human TPI1
+- Human TPI1 protein and mouse TPI1 protein
+
+The original alignment was performed using EMBOSS Needle.
 ---
 
 ## Skills Demonstrated

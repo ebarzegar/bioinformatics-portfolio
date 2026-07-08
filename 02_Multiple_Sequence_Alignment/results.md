@@ -1,20 +1,7 @@
-# Results
+Multiple sequence alignment was performed using Clustal Omega on five 16S rRNA sequences from Lactobacillus species.
 
-## Objective
+The full alignment is available here:
 
-The objective of this project was to compare the 16S rRNA sequences of five Lactobacillus species using multiple sequence alignment and identify conserved regions.
+[Clustal Omega Alignment](results/clustal_omega_alignment.txt)
 
-## Species
-
-- Lactobacillus helsingborgensis
-- Lactobacillus melliventris
-- Lactobacillus kullabergensis
-- Lactobacillus kimbladii
-- Lactobacillus ultunensis
-
-## Workflow
-
-1. Retrieve 16S rRNA sequences from NCBI.
-2. Perform multiple sequence alignment using Clustal Omega.
-3. Identify conserved and variable regions.
-4. Generate a WebLogo from a selected 50-nucleotide semi-conserved region.
+The alignment showed both highly conserved regions, represented by continuous asterisks (*), and variable regions containing substitutions and gaps.

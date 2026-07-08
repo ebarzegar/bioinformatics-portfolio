@@ -1,0 +1,8 @@
+# Sequence Files
+
+This folder contains the nucleotide and protein sequences used for the analyses in this project.
+
+- variant2.fasta
+- variant3.fasta
+- human_TPI1.fasta
+- mouse_TPI1.fasta

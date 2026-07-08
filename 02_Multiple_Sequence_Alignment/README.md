@@ -6,6 +6,19 @@ This project compares the 16S ribosomal RNA (16S rRNA) sequences of five Lactoba
 
 The objective is to identify conserved and variable regions and visualize sequence conservation using a WebLogo.
 
+workflow summary:
+NCBI Nucleotide
+        ↓
+Retrieve 16S rRNA sequences
+        ↓
+Clustal Omega
+        ↓
+Multiple Sequence Alignment
+        ↓
+Select semi-conserved region
+        ↓
+WebLogo
+
 (This project was reconstructed from my undergraduate Bioinformatics coursework.)
 ---
 

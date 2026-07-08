@@ -182,5 +182,29 @@ EMBOSS_001      1595 CTATAACAACA   1605
 ## 6. Protein Alignment
 
 Protein alignment between Homo sapiens and Mus musculus TPI1 proteins was performed using EMBOSS Needle.
+<img width="367" height="371" alt="image" src="https://github.com/user-attachments/assets/f2b3cb9f-64a8-407d-96b0-c7d322698728" />
 
-(Figure 7)
+EMBOSS_001         1 MAEDGEEAEFHFAALYISGQWPRLRADTDLQRLGSSAMAPSRKFFVGGNW     50
+                                                          |||:|||||||||
+EMBOSS_001         1 -------------------------------------MAPTRKFFVGGNW     13
+
+EMBOSS_001        51 KMNGRKQSLGELIGTLNAAKVPADTEVVCAPPTAYIDFARQKLDPKIAVA    100
+                     ||||||:.|||||.|||||.|||.||||||||||||||||||||||||||
+EMBOSS_001        14 KMNGRKKCLGELICTLNAANVPAGTEVVCAPPTAYIDFARQKLDPKIAVA     63
+
+EMBOSS_001       101 AQNCYKVTNGAFTGEISPGMIKDCGATWVVLGHSERRHVFGESDELIGQK    150
+                     |||||||||||||||||||||||.||||||||||||||||||||||||||
+EMBOSS_001        64 AQNCYKVTNGAFTGEISPGMIKDLGATWVVLGHSERRHVFGESDELIGQK    113
+
+EMBOSS_001       151 VAHALAEGLGVIACIGEKLDEREAGITEKVVFEQTKVIADNVKDWSKVVL    200
+                     |:||||||||||||||||||||||||||||||||||||||||||||||||
+EMBOSS_001       114 VSHALAEGLGVIACIGEKLDEREAGITEKVVFEQTKVIADNVKDWSKVVL    163
+
+EMBOSS_001       201 AYEPVWAIGTGKTATPQQAQEVHEKLRGWLKSNVSDAVAQSTRIIYGGSV    250
+                     ||||||||||||||||||||||||||||||||||:|.|||||||||||||
+EMBOSS_001       164 AYEPVWAIGTGKTATPQQAQEVHEKLRGWLKSNVNDGVAQSTRIIYGGSV    213
+
+EMBOSS_001       251 TGATCKELASQPDVDGFLVGGASLKPEFVDIINAKQ    286
+                     ||||||||||||||||||||||||||||||||||||
+EMBOSS_001       214 TGATCKELASQPDVDGFLVGGASLKPEFVDIINAKQ    249
+

@@ -11,15 +11,15 @@ The objective is to identify conserved and variable regions and visualize sequen
 
 ## Species Included
 
-1.Lactobacillus helsingborgensis
+-1.Lactobacillus helsingborgensis
 (NCBI Reference Sequence: NR_126253.1)
-2. Lactobacillus melliventris
+-2. Lactobacillus melliventris
 (NCBI Reference Sequence: NR_126252.1)
-3. Lactobacillus kullabergensis
+-3. Lactobacillus kullabergensis
 (NCBI Reference Sequence: NR_126251.1)
-4. Lactobacillus kimbladii
+-4. Lactobacillus kimbladii
 (NCBI Reference Sequence: NR_126250.1)
-5. Lactobacillus ultunensis
+-5. Lactobacillus ultunensis
 (NCBI Reference Sequence: NR_042802.1)
 
 ---

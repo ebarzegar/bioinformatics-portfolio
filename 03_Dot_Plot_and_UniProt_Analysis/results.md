@@ -23,14 +23,24 @@ The dot plot reveals regions of sequence similarity between the human and mouse 
 
 ## 2. Self Dot Plot Analysis Using UGENE
 
-### Objective
+## Objective
 
-### Method
+The objective of this analysis was to identify repeated regions within the human TPI1 protein sequence by generating a self-dot plot using UGENE.
 
-### Results
+## Method
 
-### Interpretation
+The amino acid sequence of the human TPI1 protein was analyzed against itself using the UGENE Dot Plot tool.
 
+**Parameters**
+
+- Minimum repeat length: 5
+- Repeat identity: 80%
+
+## Results
+<img width="815" height="520" alt="figure2_self_dotplot_ugene png" src="https://github.com/user-attachments/assets/073a322a-4146-4dac-a79e-43ab92aeb915" />
+Self-dot plot of the human TPI1 protein generated using UGENE.
+## Interpretation
+The main diagonal represents the perfect alignment of the protein sequence with itself. Short off-diagonal lines indicate small repeated or locally similar sequence regions within the TPI1 protein. No large duplicated regions were observed, suggesting that the protein does not contain extensive internal repeats.
 ---
 
 ## 3. Protein Annotation Using UniProtKB

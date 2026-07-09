@@ -182,7 +182,7 @@ EMBOSS_001      1595 CTATAACAACA   1605
 ## 6. Protein Alignment
 
 Protein alignment between Homo sapiens and Mus musculus TPI1 proteins was performed using EMBOSS Needle.
+<img width="652" height="591" alt="image" src="https://github.com/user-attachments/assets/e60532f6-353c-475d-84c2-790026b36514" />
 
-<img width="367" height="371" alt="image" src="https://github.com/user-attachments/assets/f2b3cb9f-64a8-407d-96b0-c7d322698728" />
 
 

@@ -9,13 +9,8 @@ The alignment showed both highly conserved regions, represented by continuous as
 Conducting a weblogo:
 For the semiconservative 50 nucleotide of:
 
+<img width="821" height="157" alt="image" src="https://github.com/user-attachments/assets/c500f13b-4e2f-4393-9dd7-cdcff9572823" />
 
-5L.ultunensisstrain      CGGAACCAGCAGATCTGCTTCGGCAGTGACGCTGGGAAAGCGAGCGGCGGATGGGTGAGT	120
-1L.helsingborgensis      CAATTTTGAC-GGAATACTTCGGTAGGAA-GTCAGAAGCGCGAGCGGCGGATGGGTGAGT	73
-2L.melliventris          CAATTTTGAC-AGAATACTTCGGTAGGAA-GTCAGAAGCGCGAGCGGCGGATGGGTGAGT	73
-3L.kullabergensis        CAATCTTAAC-GGAATACTTCGGTAGGAA-GTCAAGAGCGCGAGCGGCGGATGGGTGAGT	73
-4L.kimbladii             CAATCTTAAC-GGAATACTTCGGTAGGAA-GTCAAGAGCGCGAGCGGCGGATGGGTGAGT	73
-                         *        *     * ****** **  * *     *  *********************
 
 
 Using (https://weblogo.berkeley.edu/create.cgi):

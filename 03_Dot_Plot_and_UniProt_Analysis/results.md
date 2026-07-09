@@ -15,9 +15,9 @@ The nucleotide sequences of human and rabbit **TPI1** were analyzed using EMBOSS
 
 ## Results
 
-*Insert Figure 1 here.*
+![Figure 1](results/figure1_human_mouse_dotplot.png)
 
-**Figure 1.** Dot plot comparison between the human and rabbit TPI1 nucleotide sequences generated using EMBOSS Dotmatcher.
+**Figure 1.** Dot plot comparison of the coding sequences (CDS) of human and mouse **TPI1** generated using EMBOSS Dotmatcher.
 
 ## Interpretation
 ---

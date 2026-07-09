@@ -5,3 +5,7 @@ The full alignment is available here:
 [Clustal Omega Alignment](results/clustal_omega_alignment.txt)
 
 The alignment showed both highly conserved regions, represented by continuous asterisks (*), and variable regions containing substitutions and gaps.
+
+Conducting a weblogo:
+For the semiconservative 50 nucleotide of:
+

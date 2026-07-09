@@ -14,12 +14,11 @@ The nucleotide sequences of human and rabbit **TPI1** were analyzed using EMBOSS
 - Threshold: 10
 
 ## Results
+<img width="1028" height="787" alt="figure1_human_mouse_dotplot png" src="https://github.com/user-attachments/assets/d8fc32b4-8c7d-46bf-8ef2-738e3f66cfee" />
 
-![Figure 1](results/figure1_human_mouse_dotplot.png)
+Dot plot comparison of the coding sequences (CDS) of human and mouse **TPI1** generated using EMBOSS Dotmatcher.
+The dot plot reveals regions of sequence similarity between the human and mouse **TPI1** coding sequences. Conserved regions appear as diagonal alignments, indicating that the coding sequence has remained highly conserved during evolution. Small interruptions or deviations from the diagonal reflect nucleotide substitutions or minor sequence differences between the two species. Overall, the analysis demonstrates the strong evolutionary conservation of the TPI1 gene, consistent with its essential role in glycolysis.
 
-**Figure 1.** Dot plot comparison of the coding sequences (CDS) of human and mouse **TPI1** generated using EMBOSS Dotmatcher.
-
-## Interpretation
 ---
 
 ## 2. Self Dot Plot Analysis Using UGENE

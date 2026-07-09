@@ -48,6 +48,8 @@ Pairwise alignment between transcript variants 2 and 3 was performed using EMBOS
 ## 6. Protein Alignment
 
 Protein alignment between Homo sapiens and Mus musculus TPI1 proteins was performed using EMBOSS Needle.
+<img width="562" height="302" alt="image" src="https://github.com/user-attachments/assets/cd2ce2af-d41f-4d39-a32b-66e440e81d84" />
+
 <img width="652" height="591" alt="image" src="https://github.com/user-attachments/assets/e60532f6-353c-475d-84c2-790026b36514" />
 
 

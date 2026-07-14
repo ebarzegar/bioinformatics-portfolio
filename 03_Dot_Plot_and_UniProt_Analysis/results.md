@@ -43,48 +43,70 @@ Self-dot plot of the human TPI1 protein generated using UGENE.
 ## Interpretation
 
 The main diagonal represents the perfect alignment of the protein sequence with itself.
-
-Short off-diagonal lines indicate small repeated or locally similar sequence regions within the TPI1 protein.
-
+Short off-diagonal lines indicate small repeated or locally similar sequence regions within the TPI1 protein. 
 No large duplicated regions were observed, suggesting that the protein does not contain extensive internal repeats.
+
 ---
 
 ## 3. Protein Annotation Using UniProtKB
+The human TPI1 protein was explored using the UniProtKB database to investigate its biological function, post-translational modifications, structural features, and Gene Ontology (GO) annotations.
 
 ### 3.1 Gene Ontology
-
-### Objective
+Gene Ontology (GO) provides standardized descriptions of a protein's molecular function, the biological processes in which it participates, and its cellular localization.
 
 ### Results
+<img width="1432" height="450" alt="gene_ontology png" src="https://github.com/user-attachments/assets/e7f28765-c43d-45ba-818c-f6c9f4ac24bb" />
 
-### Interpretation
+https://www.ebi.ac.uk/QuickGO/annotations?geneProductId=P60174
+Gene Ontology annotations of human TPI1 obtained from UniProtKB.
+
+## Interpretation
+
+The GO annotations indicate that TPI1 functions primarily as a triose-phosphate isomerase involved in glycolysis and gluconeogenesis. The protein is mainly localized in the cytosol, consistent with its role in cellular energy metabolism.
 
 ---
 
-### 3.2 Post-translational Modifications (PTMs)
+## 3.2 Post-translational Modifications (PTMs)
 
-### Objective
+Post-translational modifications (PTMs) are chemical changes that occur after protein synthesis and can influence protein activity, localization, or interactions.
 
 ### Results
 
+<img width="1457" height="342" alt="ptms png" src="https://github.com/user-attachments/assets/6f7b9e6e-b884-4448-a3bc-ecaab46c7bb8" />
+
+
+Post-translational modifications reported for human TPI1 in UniProtKB.
+
 ### Interpretation
+
+UniProtKB reports several experimentally supported or predicted post-translational modifications for TPI1, including modified amino acid residues. These modifications may contribute to the regulation of protein function under specific biological conditions.
 
 ---
 
-### 3.3 Disulfide Bonds
+## 3.3 Disulfide Bonds
 
-### Objective
+Disulfide bonds stabilize the three-dimensional structure of many extracellular proteins.
 
 ### Results
 
+No disulfide bonds were reported for human TPI1 in UniProtKB.
+
 ### Interpretation
+
+The absence of disulfide bonds is consistent with TPI1 being a soluble cytosolic enzyme rather than a secreted protein. Cytosolic proteins are typically found in a reducing environment where stable disulfide bonds rarely form.
 
 ---
 
-### 3.4 Three-dimensional Protein Structure
+## 3.4 Three-dimensional Protein Structure
 
-### Objective
+The three-dimensional structure of TPI1 was examined using the structural information available through UniProtKB.
 
 ### Results
+<img width="437" height="443" alt="3d_structure png" src="https://github.com/user-attachments/assets/448554dd-63a4-4b61-9a52-38ec0e16a0e6" />
+
+
+Three-dimensional structure of the human TPI1 protein.
 
 ### Interpretation
+
+The three-dimensional structure demonstrates the compact folding of TPI1 that is characteristic of enzymes involved in central metabolism. Structural visualization provides insight into the spatial organization required for catalytic activity and substrate binding.

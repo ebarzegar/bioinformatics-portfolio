@@ -37,12 +37,7 @@ FASTA files are available in the data folder.
 Pairwise alignment between transcript variants 2 and 3 was performed using EMBOSS Needle.
 <img width="422" height="385" alt="61" src="https://github.com/user-attachments/assets/da356a51-e3b9-4c19-944e-9fc52c173a03" />
 
-
-
-[Uploading PairwiseAlignment-EMBOSSNeedle.txt…]()
-
-
-
+[PairwiseAlignment-EMBOSSNeedle.txt](https://github.com/user-attachments/files/30013900/PairwiseAlignment-EMBOSSNeedle.txt)
 
 ---
 

@@ -38,7 +38,8 @@ Pairwise alignment between transcript variants 2 and 3 was performed using EMBOS
 <img width="422" height="385" alt="61" src="https://github.com/user-attachments/assets/da356a51-e3b9-4c19-944e-9fc52c173a03" />
 
 
-[uploaditnow.txt](https://github.com/user-attachments/files/29852522/uploaditnow.txt)
+
+[Uploading PairwiseAlignment-EMBOSSNeedle.txt…]()
 
 
 

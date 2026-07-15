@@ -62,7 +62,33 @@ The human TPI1 protein was searched in the STRING database, and the predicted pr
 Protein–protein interaction network of human TPI1 generated using STRING.
 
 ---
-
 ## Interpretation
 
 The STRING interaction network shows that TPI1 is functionally associated with several enzymes involved in glycolysis and central carbon metabolism. The dense connectivity within the network reflects the coordinated activity of metabolic enzymes required for efficient energy production. This analysis demonstrates that TPI1 functions as part of a larger biological system rather than as an isolated protein.
+
+# 3. Protein Structure Prediction Using SWISS-MODEL
+
+## Objective
+
+To investigate the effect of a single amino acid substitution on the predicted three-dimensional structure of human TPI1 using SWISS-MODEL.
+
+---
+
+## Method
+
+The amino acid sequence of human TPI1 was obtained from UniProt. A single amino acid substitution (K→A) was introduced into the sequence, and the modified protein sequence was submitted to SWISS-MODEL for comparative protein structure prediction.
+
+---
+
+## Results
+<img width="1710" height="837" alt="The predicted model" src="https://github.com/user-attachments/assets/124c6c51-6696-4fa5-8014-cee0c5acd977" />
+
+<img width="437" height="443" alt="3d_structure png" src="https://github.com/user-attachments/assets/f69de829-8b56-479c-b005-cdbf9fa1656b" />
+
+ Predicted three-dimensional structure of the mutated human TPI1 generated using SWISS-MODEL vs. the original model.
+
+---
+
+## Interpretation
+
+The predicted structure of the mutated TPI1 protein remained highly similar to the wild-type structure, indicating that this single amino acid substitution did not substantially alter the overall three-dimensional fold. This demonstrates an important concept in structural biology: individual amino acid substitutions do not necessarily cause major structural changes. However, even when the global structure is preserved, mutations may still influence protein stability, enzymatic activity, ligand binding, or interactions with other molecules. Therefore, computational structure prediction provides valuable insight, but experimental studies are required to determine the functional consequences of the mutation.

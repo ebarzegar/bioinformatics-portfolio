@@ -17,12 +17,17 @@ The BLASTN search identified highly similar TPI1 sequences in multiple species, 
 ## 2. Protein Engineering
 
 ### Objective
-
+To investigate reported amino acid variants and protein engineering studies associated with the human TPI1 protein.
 ### Method
-
+The UniProtKB database was searched for experimentally reported variants and amino acid substitutions of human TPI1. Reported sequence changes and their annotations were examined.
 ### Results
+<img width="1880" height="678" alt="Screenshot 2026-07-20 145140" src="https://github.com/user-attachments/assets/ffcf654b-8f37-410b-be25-5c0b190b3158" />
+<img width="1480" height="453" alt="Screenshot 2026-07-20 145219" src="https://github.com/user-attachments/assets/1d0a4ccf-b77e-4dfa-89b9-66492a6d65f6" />
 
+
+Reported amino acid variants of human TPI1 obtained from UniProtKB.
 ### Interpretation
+The UniProt entry contains several reported amino acid substitutions in TPI1. These variants demonstrate how changes in the protein sequence can influence protein function or be associated with specific biological or clinical phenotypes. Studying naturally occurring and engineered variants helps researchers understand the relationship between protein sequence, structure, and function.
 
 ---
 
@@ -30,11 +35,36 @@ The BLASTN search identified highly similar TPI1 sequences in multiple species, 
 
 ### Objective
 
+To design a primer pair for the human TPI1 transcript and evaluate its specificity using NCBI Primer-BLAST.
+
 ### Method
+
+The human TPI1 transcript variant 2 (NCBI RefSeq: NM_001159287.1) was submitted to NCBI Primer-BLAST. Primer pairs were designed with a target product size of 100–300 bp and an optimal melting temperature near 60°C. Specificity was assessed against the human RefSeq mRNA database to identify potential unintended amplification products.
 
 ### Results
 
+![Figure 3](results/03_primer_design.png)
+
+**Figure 3.** Primer pairs designed for the human TPI1 transcript using NCBI Primer-BLAST.
+
+![Figure 4](results/04_primer_specificity.png)
+
+**Figure 4.** Primer-BLAST specificity analysis for the selected human TPI1 primer pair.
+
+### Selected Primer Pair
+
+| Property | Forward primer | Reverse primer |
+|---|---|---|
+| Sequence (5′→3′) | Add after obtaining results | Add after obtaining results |
+| Length | Add result | Add result |
+| Tm | Add result | Add result |
+| GC content | Add result | Add result |
+
+**Predicted product length:** Add result
+
 ### Interpretation
+
+The selected primer pair had similar melting temperatures and suitable GC contents, supporting efficient simultaneous annealing during PCR. Low 3′ self-complementarity reduces the likelihood of primer-dimer formation because DNA polymerase extends primers from their 3′ ends. The specificity analysis was used to confirm whether the pair preferentially amplifies the intended human TPI1 transcript rather than unrelated human sequences.
 
 ---
 

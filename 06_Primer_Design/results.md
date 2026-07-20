@@ -1,4 +1,3 @@
-[seqdump.txt](https://github.com/user-attachments/files/30200558/seqdump.txt)# Primer Design and Specificity Analysis
 
 ## 1. Identification of Homologous Sequences Using BLASTN
 
@@ -7,7 +6,7 @@ The human TPI1 nucleotide sequence was submitted to the NCBI BLASTN program. Hom
 ### Results
 <img width="1512" height="730" alt="image" src="https://github.com/user-attachments/assets/c71fb72e-a501-4411-9172-25b14d2744a8" />
 
-
+[seqdump.txt](https://github.com/user-attachments/files/30200558/seqdump.txt)# Primer Design and Specificity Analysis
 BLASTN results showing homologous TPI1 nucleotide sequences identified in different organisms.
 ### Interpretation
 BLASTN results showing homologous TPI1 nucleotide sequences identified in different organisms.

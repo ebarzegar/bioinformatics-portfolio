@@ -39,32 +39,39 @@ To design a primer pair for the human TPI1 transcript and evaluate its specifici
 
 ### Method
 
-The human TPI1 transcript variant 2 (NCBI RefSeq: NM_001159287.1) was submitted to NCBI Primer-BLAST. Primer pairs were designed with a target product size of 100–300 bp and an optimal melting temperature near 60°C. Specificity was assessed against the human RefSeq mRNA database to identify potential unintended amplification products.
+The human TPI1 transcript variant 2 (NCBI RefSeq: NM_001159287.1) was submitted to NCBI Primer-BLAST. Primer pairs were designed for a predicted PCR product between 100 and 300 bp, with an optimal primer melting temperature of approximately 60°C. Specificity was assessed against the human RefSeq mRNA database.
 
 ### Results
 
-![Figure 3](results/03_primer_design.png)
+<img width="1788" height="552" alt="Screenshot 2026-07-20 151358" src="https://github.com/user-attachments/assets/03a4adca-e1be-460f-98d0-bfb2e5ed634e" />
 
-**Figure 3.** Primer pairs designed for the human TPI1 transcript using NCBI Primer-BLAST.
+Graphical positions of candidate primer pairs designed for the human TPI1 transcript using NCBI Primer-BLAST.
 
-![Figure 4](results/04_primer_specificity.png)
-
-**Figure 4.** Primer-BLAST specificity analysis for the selected human TPI1 primer pair.
+<img width="1693" height="392" alt="Screenshot 2026-07-20 151448" src="https://github.com/user-attachments/assets/871a18e1-662f-450f-ba4f-592ee99dcf56" />
+Detailed Primer-BLAST results for the selected TPI1 primer pair.
 
 ### Selected Primer Pair
 
 | Property | Forward primer | Reverse primer |
 |---|---|---|
-| Sequence (5′→3′) | Add after obtaining results | Add after obtaining results |
-| Length | Add result | Add result |
-| Tm | Add result | Add result |
-| GC content | Add result | Add result |
+| Sequence (5′→3′) | ATATAAGTGGGCAGTGGCCG | CCAGTTTCCCCCAACGAAGA |
+| Template strand | Plus | Minus |
+| Length | 20 nt | 20 nt |
+| Position | 83–102 | 186–167 |
+| Melting temperature | 59.89°C | 59.89°C |
+| GC content | 55.00% | 55.00% |
+| Self-complementarity | 5.00 | 3.00 |
+| Self 3′ complementarity | 3.00 | 0.00 |
 
-**Predicted product length:** Add result
+**Predicted PCR product length:** 104 bp
+
+**Specificity result:** The primer pair was specific to the input TPI1 transcript, with no additional targets identified in the selected human RefSeq mRNA database.
 
 ### Interpretation
 
-The selected primer pair had similar melting temperatures and suitable GC contents, supporting efficient simultaneous annealing during PCR. Low 3′ self-complementarity reduces the likelihood of primer-dimer formation because DNA polymerase extends primers from their 3′ ends. The specificity analysis was used to confirm whether the pair preferentially amplifies the intended human TPI1 transcript rather than unrelated human sequences.
+The selected primers have identical melting temperatures and balanced GC contents, allowing them to anneal efficiently under the same PCR conditions. The low self-complementarity values, particularly at the 3′ ends, reduce the likelihood of primer-dimer formation. Primer-BLAST identified only the intended human TPI1 transcript in the selected database, supporting the specificity of the primer pair.
+
+The primers do not begin at the TPI1 start codon because PCR primers do not need to amplify the entire coding sequence. Instead, they flank a short, specific region of the transcript and generate a 104-bp product.
 
 ---
 

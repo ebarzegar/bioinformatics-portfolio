@@ -132,7 +132,7 @@ The selected primer pair generates a short 130 bp amplicon, making it suitable f
 
 ### 4.2 PCR and Agarose Gel Primers
 
-### Objective
+### Objective 
 
 ### Method
 

@@ -16,9 +16,6 @@ Throughout the project, primer candidates were evaluated according to melting te
 ---
 
 ## Learning Objectives
-
-By completing this project, I learned how to:
-
 - Design PCR primers using NCBI Primer-BLAST.
 - Interpret primer quality metrics, including melting temperature (Tm), GC content, and self-complementarity.
 - Understand the importance of the 3′ end of a primer for efficient DNA polymerase extension.

@@ -129,16 +129,48 @@ Detailed properties of the selected exon-junction primer pair.
 The selected primer pair generates a short 130 bp amplicon, making it suitable for quantitative PCR analysis. The forward primer spans an exon-exon junction, allowing efficient amplification of cDNA while minimizing amplification of contaminating genomic DNA. The primers have similar melting temperatures and balanced GC contents, supporting efficient amplification under the same PCR conditions. The low 3′ self-complementarity also reduces the likelihood of primer-dimer formation, making this primer pair appropriate for accurate measurement of **Tpi1** gene expression.
 
 ---
+### 4.2 Conventional PCR and Agarose Gel Analysis
 
-### 4.2 PCR and Agarose Gel Primers
+#### Objective
 
-### Objective 
+To design a primer pair that produces a clearly visible PCR product from mouse Tpi1 cDNA and allows amplification from contaminating genomic DNA to be distinguished by product size on an agarose gel.
 
-### Method
+#### Experimental Design
 
-### Results
+Unlike the exon-junction strategy used for qPCR, neither primer was designed to cross an exon–exon junction. Instead, the forward and reverse primers bind within separate exon regions. The introns are absent from cDNA but remain present in genomic DNA. Therefore, amplification from cDNA is expected to produce a shorter product, whereas amplification from genomic DNA would produce a substantially larger fragment containing the intervening intronic sequence.
 
-### Interpretation
+#### Method
+
+The mouse Tpi1 transcript (NCBI RefSeq: NM_009415.3) was submitted to NCBI Primer-BLAST. The requested PCR product size was set to 300–700 bp, and the primers were required not to span exon–exon junctions. Candidate primer pairs were evaluated according to product length, melting temperature, GC content, and self-complementarity.
+
+#### Results
+
+<img width="1806" height="677" alt="Screenshot 2026-08-01 155257" src="https://github.com/user-attachments/assets/3cd2b7a3-c25f-4089-92e2-90a814b1f82c" />
+
+Graphical positions of candidate primer pairs designed for conventional PCR analysis of mouse Tpi1.
+
+#### Selected Primer Pair
+
+| Property | Forward primer | Reverse primer |
+|---|---|---|
+| Sequence (5′→3′) | TGAACGGGAGGAAGAAGTGC | GTCTAGCTTCTCCCCGATGC |
+| Template strand | Plus | Minus |
+| Length | 20 nt | 20 nt |
+| Position | 80–99 | 435–416 |
+| Melting temperature | 59.97°C | 59.97°C |
+| GC content | 55.00% | 60.00% |
+| Self-complementarity | 2.00 | 4.00 |
+| 3′ self-complementarity | 2.00 | 2.00 |
+
+**Predicted cDNA product length:** 356 bp
+
+**Exon-junction status:** Neither primer spans an exon–exon junction.
+
+#### Interpretation
+
+The selected primer pair generates a 356-bp cDNA product, which is suitable for visualization on an agarose gel. Because the primers bind within separate exon regions rather than across an exon–exon junction, the corresponding genomic DNA product would retain the intervening intronic sequence and would therefore be larger than the cDNA product. The size difference can help identify genomic DNA contamination on an agarose gel.
+
+The identical primer melting temperatures support efficient simultaneous annealing, while the relatively low self-complementarity values reduce the likelihood of primer-dimer formation.
 
 ---
 

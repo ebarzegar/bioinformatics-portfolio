@@ -81,6 +81,7 @@ p.show_codings()
 
 
 ----
+02_human_mouse_TPI1_dotplot:
 
 import numpy
 import matplotlib.pyplot as plt

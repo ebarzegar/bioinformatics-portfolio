@@ -174,12 +174,44 @@ The identical primer melting temperatures support efficient simultaneous anneali
 
 ---
 
-### 4.3 qPCR Primers with Probe
+## 4.3 Probe-Based qPCR (TaqMan Assay)
 
 ### Objective
 
+To design a probe-based qPCR assay for the mouse **Tpi1** transcript using a pair of PCR primers and an internal fluorescent probe to increase detection specificity.
+
 ### Method
+
+The mouse **Tpi1** mRNA sequence (NCBI RefSeq: NM_009415.3) was analyzed using NCBI Primer-BLAST with the internal oligo (probe) option enabled. The software generated a forward primer, reverse primer, and an internal probe located between the primers. Candidate assays were evaluated based on melting temperature (Tm), GC content, self-complementarity, and predicted product size.
 
 ### Results
 
+5' ---------------------------------------------------------------------- 3'
+
+🟦 Forward Primer ─────►
+
+                 🟩 Fluorescent Probe
+
+                               ◄───── 🟥 Reverse Primer
+
+              Amplified PCR Product (604 bp)
+
+Schematic representation of the probe-based qPCR assay showing the forward primer, internal fluorescent probe, reverse primer, and the amplified region.
+
+<img width="1092" height="857" alt="image" src="https://github.com/user-attachments/assets/b2fd0d5f-96e6-4962-a8ac-01ca98d49179" />
+
+Selected TaqMan primer pair and internal probe generated using NCBI Primer-BLAST.
+
+### Selected Assay
+
+| Component | Sequence (5'→3') | Length | Tm (°C) | GC (%) |
+|-----------|------------------|--------|---------|--------|
+| Forward primer | TGAACGGGAGGAAGAAGTGC | 20 nt | 59.97 | 55.00 |
+| Probe | GGGACTCGGGGTGATCGCCT | 20 nt | 60.04 | 70.00 |
+| Reverse primer | GCTCCAGTCACAGAACCTCC | 20 nt | 60.04 | 60.00 |
+
+Predicted product size: **604 bp**
+
 ### Interpretation
+
+Unlike conventional qPCR, probe-based qPCR uses an additional fluorescent oligonucleotide located between the forward and reverse primers. During DNA amplification, DNA polymerase cleaves the bound probe, separating the fluorescent reporter from the quencher and generating a fluorescent signal. Because fluorescence is produced only when both primers and the probe bind to the correct target sequence, probe-based assays provide higher specificity and reduce false-positive amplification compared with primer-only assays.

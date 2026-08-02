@@ -1,2 +1,2 @@
 # bioinformatics-portfolio
-A portfolio of bioinformatics projects involving gene annotation, sequence analysis, protein structure, molecular docking, primer design, and phylogenetics.
+Hands-on bioinformatics portfolio featuring Python, sequence analysis, structural biology, molecular docking, primer design, and computational genomics projects.

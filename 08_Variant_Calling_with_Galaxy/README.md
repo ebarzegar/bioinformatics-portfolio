@@ -19,3 +19,4 @@ IGV
 SnpEff
 
 The workflow demonstrates how raw sequencing reads are progressively transformed into biologically meaningful variant information. Each tool performs a specific role within the pipeline, from assessing sequencing quality to annotating the potential biological effects of detected variants
+• Performed quality assessment of raw paired-end sequencing reads using FastQC before preprocessing.

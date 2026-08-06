@@ -68,4 +68,42 @@ Trimmomatic generated four output files:
 
 Only the paired reads were retained for downstream analysis because they preserve the paired-end relationship required for accurate sequence alignment.
 
-*No figure is included for this step because Trimmomatic primarily produces processed sequencing files rather than an informative visualization.*
+## Step 4 – Sequence Alignment with BWA-MEM
+
+After quality trimming, the paired-end sequencing reads were aligned to the human reference genome (hg38) using **BWA-MEM** within the Galaxy platform. Sequence alignment determines the genomic location of each sequencing read by comparing it with the reference genome, providing the foundation for accurate variant detection.
+
+The trimmed paired-end reads (R1 paired and R2 paired) were aligned using the default Illumina parameters, producing a sorted BAM alignment file. This file stores the genomic coordinates, mapping quality, alignment information, and orientation of each sequencing read, enabling downstream variant calling.
+
+The alignment completed successfully and generated a BAM file that was used as the input for variant detection with LoFreq and subsequent visualization in IGV.
+## Step 5 – Variant Calling and Visualization
+
+Following sequence alignment, single nucleotide variants were identified using **LoFreq** within the Galaxy platform. LoFreq examines the reads stored in the BAM alignment file and compares the nucleotide observed at each genomic position with the corresponding base in the human reference genome (**hg38**).
+
+LoFreq incorporates base-quality scores, sequencing depth, allele frequency, and strand information into its statistical model. This helps distinguish genuine sequence variants from errors introduced during sequencing. Variant calling was performed across the complete reference genome using the default filtering parameters, and the results were saved in Variant Call Format (**VCF**).
+
+The analysis identified variants on chromosomes 1 and 17, as well as within the mitochondrial genome. One high-confidence variant selected for closer examination was:
+
+| Property | Value |
+|---|---|
+| Chromosome | chr17 |
+| Position | 22,521,407 |
+| Reference allele | G |
+| Alternate allele | A |
+| Quality score | 706 |
+| Read depth | 40 |
+| Allele frequency | 1.00 |
+| Filter status | PASS |
+
+The variant was subsequently examined using the **Integrative Genomics Viewer (IGV)**. The BAM alignment was displayed over the hg38 reference genome at the region surrounding chromosome 17 position 22,521,407.
+
+<img width="1156" height="630" alt="image" src="https://github.com/user-attachments/assets/3f7be50c-0804-46ee-914a-75253b0e7330" />
+
+IGV visualization of the genomic region surrounding **chr17:22,521,407**. The reference genome contains a **G** at the selected position, while the aligned sequencing reads consistently show the alternate nucleotide **A**. The coverage track and repeated support from multiple reads provide visual evidence for the G→A single nucleotide variant reported by LoFreq.
+
+### Interpretation
+
+The consistent appearance of the alternate allele across the aligned reads supports the LoFreq variant call and suggests that the difference is unlikely to result from an isolated sequencing error. The variant passed LoFreq filtering with a high quality score and a read depth of 40, indicating strong sequencing support at this position.
+
+The reported allele frequency of 1.00 means that all reads used by LoFreq at this genomic position supported the alternate allele. Visual inspection in IGV therefore provides an additional confirmation that the called G→A substitution is supported by the underlying alignment data.
+
+At this stage, the variant has been detected and visually confirmed, but its possible biological consequence is not yet known. Functional annotation with **SnpEff** is required to determine whether the variant occurs within a gene or regulatory region and whether it may affect a transcript or protein.

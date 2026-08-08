@@ -104,6 +104,46 @@ IGV visualization of the genomic region surrounding **chr17:22,521,407**. The re
 
 The consistent appearance of the alternate allele across the aligned reads supports the LoFreq variant call and suggests that the difference is unlikely to result from an isolated sequencing error. The variant passed LoFreq filtering with a high quality score and a read depth of 40, indicating strong sequencing support at this position.
 
+## Step 6 – Functional Annotation with SnpEff
+
+The variants produced by LoFreq were functionally annotated using SnpEff 5.4c within the Galaxy platform. SnpEff predicts the potential biological consequences of sequence variants by determining their locations relative to genes and transcripts and evaluating whether coding variants may alter codons or amino acids.
+
+The GRCh38.115 human genome database was used for annotation. This database was selected after querying the SnpEff database catalogue available on the Galaxy server, where the available standard GRCh38 releases included GRCh38.86, GRCh38.99, and GRCh38.115.
+
+The input VCF contained 37 PASS variants: 2 on chromosome 1, 6 on chromosome 17, and 29 on the mitochondrial chromosome.
+
+During the first annotation attempt, SnpEff successfully recognized the nuclear variants but reported `ERROR_CHROMOSOME_NOT_FOUND` for variants labelled `chrM`. This occurred because the GRCh38.115 SnpEff database represents the mitochondrial chromosome as `MT`. To resolve this compatibility issue, only the mitochondrial chromosome identifier was changed from `chrM` to `MT`. Variant positions, reference and alternate alleles, quality scores, sequencing depths, and allele frequencies were not modified.
+
+After chromosome-name normalization, SnpEff successfully processed all 37 variants and produced 53 annotations with no annotation errors. The predicted effects included 8 MODERATE, 7 LOW, and 38 MODIFIER annotations. The annotated consequences included missense variants, synonymous variants, intronic variants, intergenic variants, and non-coding transcript exon variants.
+
+Among the predicted coding consequences, 8 effects were classified as missense and 7 as synonymous. Missense variants alter a coding sequence in a way that changes the encoded amino acid, whereas synonymous variants alter a codon without changing the resulting amino acid. SnpEff therefore extended the analysis beyond variant detection by connecting nucleotide substitutions with their predicted consequences at the coding and protein levels.
+
+### Codon Changes
+
+The SnpEff annotation report summarized changes affecting protein-coding sequences in a codon-change matrix. Rows represent reference codons and columns represent the corresponding altered codons, allowing nucleotide variants to be connected directly with changes in coding sequence.
+
+<img width="1260" height="833" alt="Screenshot 2026-08-07 183535" src="https://github.com/user-attachments/assets/41de99b5-13bf-4ca1-9669-66ff616d9801" />
+
+
+**Codon changes predicted by SnpEff.** The matrix summarizes changes from reference codons to altered codons among coding variants identified in the dataset. This analysis links nucleotide substitutions detected during variant calling to their predicted effects on protein-coding sequences.
+
+### Amino Acid Changes
+
+SnpEff also summarized the predicted amino-acid consequences of coding variants. The amino-acid change matrix shows substitutions resulting from missense variants, providing a protein-level representation of the functional consequences identified during annotation.
+
+<img width="1262" height="550" alt="image" src="https://github.com/user-attachments/assets/0c815477-591a-43b3-9141-cff1dbfa23e0" />
+
+
+** Amino-acid changes predicted by SnpEff.** Rows represent reference amino acids and columns represent the resulting amino acids following predicted coding changes. These substitutions demonstrate how nucleotide-level variants can propagate from codon changes to predicted alterations in protein sequence.
+
+### Interpretation
+
+Functional annotation completed the variant-analysis workflow by transforming the variants detected by LoFreq into biologically interpretable predictions. The analysis progressed from quality-controlled paired-end sequencing reads through trimming, alignment to hg38, variant calling, read-level inspection in IGV, and finally prediction of variant consequences using SnpEff.
+
+The correction from `chrM` to `MT` also demonstrates an important bioinformatics quality-control principle: chromosome identifiers must be compatible between variant files and annotation databases even when they represent the same reference assembly.
+
+The resulting annotations describe predicted molecular consequences and should not be interpreted as clinical classifications. Additional evidence from curated clinical databases and experimental or orthogonal validation would be required before assigning medical significance to individual variants.
+
 The reported allele frequency of 1.00 means that all reads used by LoFreq at this genomic position supported the alternate allele. Visual inspection in IGV therefore provides an additional confirmation that the called G→A substitution is supported by the underlying alignment data.
 
 At this stage, the variant has been detected and visually confirmed, but its possible biological consequence is not yet known. Functional annotation with **SnpEff** is required to determine whether the variant occurs within a gene or regulatory region and whether it may affect a transcript or protein.

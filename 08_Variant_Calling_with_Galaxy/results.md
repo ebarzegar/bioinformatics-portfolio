@@ -42,8 +42,6 @@ Some FastQC modules generated warnings or failures (such as sequence duplication
 
 Both paired-end FASTQ files (raw_child-ds-1.fq and raw_child-ds-2.fq) were analyzed independently and showed similar quality profiles.
 
-<img width="1530" height="602" alt="image" src="https://github.com/user-attachments/assets/04ffd03e-d56e-435c-a563-ce5604ad3698" />
-
 **Figure 1.** FastQC quality assessment showing high sequencing quality across most of the read length with a gradual decrease toward the 3′ end.
 
 ---
@@ -68,6 +66,8 @@ Trimmomatic generated four output files:
 
 Only the paired reads were retained for downstream analysis because they preserve the paired-end relationship required for accurate sequence alignment.
 
+---
+
 ## Step 4 – Sequence Alignment with BWA-MEM
 
 After quality trimming, the paired-end sequencing reads were aligned to the human reference genome (hg38) using **BWA-MEM** within the Galaxy platform. Sequence alignment determines the genomic location of each sequencing read by comparing it with the reference genome, providing the foundation for accurate variant detection.
@@ -75,6 +75,9 @@ After quality trimming, the paired-end sequencing reads were aligned to the huma
 The trimmed paired-end reads (R1 paired and R2 paired) were aligned using the default Illumina parameters, producing a sorted BAM alignment file. This file stores the genomic coordinates, mapping quality, alignment information, and orientation of each sequencing read, enabling downstream variant calling.
 
 The alignment completed successfully and generated a BAM file that was used as the input for variant detection with LoFreq and subsequent visualization in IGV.
+
+---
+
 ## Step 5 – Variant Calling and Visualization
 
 Following sequence alignment, single nucleotide variants were identified using **LoFreq** within the Galaxy platform. LoFreq examines the reads stored in the BAM alignment file and compares the nucleotide observed at each genomic position with the corresponding base in the human reference genome (**hg38**).
@@ -83,26 +86,28 @@ LoFreq incorporates base-quality scores, sequencing depth, allele frequency, and
 
 The analysis identified variants on chromosomes 1 and 17, as well as within the mitochondrial genome. One high-confidence variant selected for closer examination was:
 
-| Property | Value |
-|---|---|
-| Chromosome | chr17 |
-| Position | 22,521,407 |
-| Reference allele | G |
-| Alternate allele | A |
-| Quality score | 706 |
-| Read depth | 40 |
-| Allele frequency | 1.00 |
-| Filter status | PASS |
+| Property         | Value      |
+| ---------------- | ---------- |
+| Chromosome       | chr17      |
+| Position         | 22,521,407 |
+| Reference allele | G          |
+| Alternate allele | A          |
+| Quality score    | 706        |
+| Read depth       | 40         |
+| Allele frequency | 1.00       |
+| Filter status    | PASS       |
 
 The variant was subsequently examined using the **Integrative Genomics Viewer (IGV)**. The BAM alignment was displayed over the hg38 reference genome at the region surrounding chromosome 17 position 22,521,407.
-
-<img width="1156" height="630" alt="image" src="https://github.com/user-attachments/assets/3f7be50c-0804-46ee-914a-75253b0e7330" />
 
 IGV visualization of the genomic region surrounding **chr17:22,521,407**. The reference genome contains a **G** at the selected position, while the aligned sequencing reads consistently show the alternate nucleotide **A**. The coverage track and repeated support from multiple reads provide visual evidence for the G→A single nucleotide variant reported by LoFreq.
 
 ### Interpretation
 
 The consistent appearance of the alternate allele across the aligned reads supports the LoFreq variant call and suggests that the difference is unlikely to result from an isolated sequencing error. The variant passed LoFreq filtering with a high quality score and a read depth of 40, indicating strong sequencing support at this position.
+
+The reported allele frequency of 1.00 means that all reads used by LoFreq at this genomic position supported the alternate allele. Visual inspection in IGV therefore provides an additional confirmation that the called G→A substitution is supported by the underlying alignment data.
+
+---
 
 ## Step 6 – Functional Annotation with SnpEff
 
@@ -122,19 +127,13 @@ Among the predicted coding consequences, 8 effects were classified as missense a
 
 The SnpEff annotation report summarized changes affecting protein-coding sequences in a codon-change matrix. Rows represent reference codons and columns represent the corresponding altered codons, allowing nucleotide variants to be connected directly with changes in coding sequence.
 
-<img width="1260" height="833" alt="Screenshot 2026-08-07 183535" src="https://github.com/user-attachments/assets/41de99b5-13bf-4ca1-9669-66ff616d9801" />
-
-
 **Codon changes predicted by SnpEff.** The matrix summarizes changes from reference codons to altered codons among coding variants identified in the dataset. This analysis links nucleotide substitutions detected during variant calling to their predicted effects on protein-coding sequences.
 
 ### Amino Acid Changes
 
 SnpEff also summarized the predicted amino-acid consequences of coding variants. The amino-acid change matrix shows substitutions resulting from missense variants, providing a protein-level representation of the functional consequences identified during annotation.
 
-<img width="1262" height="550" alt="image" src="https://github.com/user-attachments/assets/0c815477-591a-43b3-9141-cff1dbfa23e0" />
-
-
-** Amino-acid changes predicted by SnpEff.** Rows represent reference amino acids and columns represent the resulting amino acids following predicted coding changes. These substitutions demonstrate how nucleotide-level variants can propagate from codon changes to predicted alterations in protein sequence.
+**Amino-acid changes predicted by SnpEff.** Rows represent reference amino acids and columns represent the resulting amino acids following predicted coding changes. These substitutions demonstrate how nucleotide-level variants can propagate from codon changes to predicted alterations in protein sequence.
 
 ### Interpretation
 
@@ -143,7 +142,3 @@ Functional annotation completed the variant-analysis workflow by transforming th
 The correction from `chrM` to `MT` also demonstrates an important bioinformatics quality-control principle: chromosome identifiers must be compatible between variant files and annotation databases even when they represent the same reference assembly.
 
 The resulting annotations describe predicted molecular consequences and should not be interpreted as clinical classifications. Additional evidence from curated clinical databases and experimental or orthogonal validation would be required before assigning medical significance to individual variants.
-
-The reported allele frequency of 1.00 means that all reads used by LoFreq at this genomic position supported the alternate allele. Visual inspection in IGV therefore provides an additional confirmation that the called G→A substitution is supported by the underlying alignment data.
-
-At this stage, the variant has been detected and visually confirmed, but its possible biological consequence is not yet known. Functional annotation with **SnpEff** is required to determine whether the variant occurs within a gene or regulatory region and whether it may affect a transcript or protein.

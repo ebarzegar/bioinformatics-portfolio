@@ -42,6 +42,8 @@ Some FastQC modules generated warnings or failures (such as sequence duplication
 
 Both paired-end FASTQ files (raw_child-ds-1.fq and raw_child-ds-2.fq) were analyzed independently and showed similar quality profiles.
 
+<img width="1530" height="602" alt="image" src="https://github.com/user-attachments/assets/04ffd03e-d56e-435c-a563-ce5604ad3698" />
+
 **Figure 1.** FastQC quality assessment showing high sequencing quality across most of the read length with a gradual decrease toward the 3′ end.
 
 ---
@@ -99,7 +101,9 @@ The analysis identified variants on chromosomes 1 and 17, as well as within the 
 
 The variant was subsequently examined using the **Integrative Genomics Viewer (IGV)**. The BAM alignment was displayed over the hg38 reference genome at the region surrounding chromosome 17 position 22,521,407.
 
-IGV visualization of the genomic region surrounding **chr17:22,521,407**. The reference genome contains a **G** at the selected position, while the aligned sequencing reads consistently show the alternate nucleotide **A**. The coverage track and repeated support from multiple reads provide visual evidence for the G→A single nucleotide variant reported by LoFreq.
+<img width="1156" height="630" alt="image" src="https://github.com/user-attachments/assets/3f7be50c-0804-46ee-914a-75253b0e7330" />
+
+**Figure 2.** IGV visualization of the genomic region surrounding **chr17:22,521,407**. The reference genome contains a **G** at the selected position, while the aligned sequencing reads consistently show the alternate nucleotide **A**. The coverage track and repeated support from multiple reads provide visual evidence for the G→A single nucleotide variant reported by LoFreq.
 
 ### Interpretation
 
@@ -111,15 +115,15 @@ The reported allele frequency of 1.00 means that all reads used by LoFreq at thi
 
 ## Step 6 – Functional Annotation with SnpEff
 
-The variants produced by LoFreq were functionally annotated using SnpEff 5.4c within the Galaxy platform. SnpEff predicts the potential biological consequences of sequence variants by determining their locations relative to genes and transcripts and evaluating whether coding variants may alter codons or amino acids.
+The variants produced by LoFreq were functionally annotated using **SnpEff 5.4c** within the Galaxy platform. SnpEff predicts the potential biological consequences of sequence variants by determining their locations relative to genes and transcripts and evaluating whether coding variants may alter codons or amino acids.
 
-The GRCh38.115 human genome database was used for annotation. This database was selected after querying the SnpEff database catalogue available on the Galaxy server, where the available standard GRCh38 releases included GRCh38.86, GRCh38.99, and GRCh38.115.
+The **GRCh38.115 human genome database** was used for annotation. This database was selected after querying the SnpEff database catalogue available on the Galaxy server, where the available standard GRCh38 releases included GRCh38.86, GRCh38.99, and GRCh38.115.
 
-The input VCF contained 37 PASS variants: 2 on chromosome 1, 6 on chromosome 17, and 29 on the mitochondrial chromosome.
+The input VCF contained **37 PASS variants**: 2 on chromosome 1, 6 on chromosome 17, and 29 on the mitochondrial chromosome.
 
 During the first annotation attempt, SnpEff successfully recognized the nuclear variants but reported `ERROR_CHROMOSOME_NOT_FOUND` for variants labelled `chrM`. This occurred because the GRCh38.115 SnpEff database represents the mitochondrial chromosome as `MT`. To resolve this compatibility issue, only the mitochondrial chromosome identifier was changed from `chrM` to `MT`. Variant positions, reference and alternate alleles, quality scores, sequencing depths, and allele frequencies were not modified.
 
-After chromosome-name normalization, SnpEff successfully processed all 37 variants and produced 53 annotations with no annotation errors. The predicted effects included 8 MODERATE, 7 LOW, and 38 MODIFIER annotations. The annotated consequences included missense variants, synonymous variants, intronic variants, intergenic variants, and non-coding transcript exon variants.
+After chromosome-name normalization, SnpEff successfully processed all 37 variants and produced 53 annotations with no annotation errors. The predicted effects included **8 MODERATE, 7 LOW, and 38 MODIFIER annotations**. The annotated consequences included missense variants, synonymous variants, intronic variants, intergenic variants, and non-coding transcript exon variants.
 
 Among the predicted coding consequences, 8 effects were classified as missense and 7 as synonymous. Missense variants alter a coding sequence in a way that changes the encoded amino acid, whereas synonymous variants alter a codon without changing the resulting amino acid. SnpEff therefore extended the analysis beyond variant detection by connecting nucleotide substitutions with their predicted consequences at the coding and protein levels.
 
@@ -127,13 +131,17 @@ Among the predicted coding consequences, 8 effects were classified as missense a
 
 The SnpEff annotation report summarized changes affecting protein-coding sequences in a codon-change matrix. Rows represent reference codons and columns represent the corresponding altered codons, allowing nucleotide variants to be connected directly with changes in coding sequence.
 
-**Codon changes predicted by SnpEff.** The matrix summarizes changes from reference codons to altered codons among coding variants identified in the dataset. This analysis links nucleotide substitutions detected during variant calling to their predicted effects on protein-coding sequences.
+<img width="1260" height="833" alt="Screenshot 2026-08-07 183535" src="https://github.com/user-attachments/assets/41de99b5-13bf-4ca1-9669-66ff616d9801" />
+
+**Figure 3. Codon changes predicted by SnpEff.** The matrix summarizes changes from reference codons to altered codons among coding variants identified in the dataset. This analysis links nucleotide substitutions detected during variant calling to their predicted effects on protein-coding sequences.
 
 ### Amino Acid Changes
 
 SnpEff also summarized the predicted amino-acid consequences of coding variants. The amino-acid change matrix shows substitutions resulting from missense variants, providing a protein-level representation of the functional consequences identified during annotation.
 
-**Amino-acid changes predicted by SnpEff.** Rows represent reference amino acids and columns represent the resulting amino acids following predicted coding changes. These substitutions demonstrate how nucleotide-level variants can propagate from codon changes to predicted alterations in protein sequence.
+<img width="1262" height="550" alt="image" src="https://github.com/user-attachments/assets/0c815477-591a-43b3-9141-cff1dbfa23e0" />
+
+**Figure 4. Amino-acid changes predicted by SnpEff.** Rows represent reference amino acids and columns represent the resulting amino acids following predicted coding changes. These substitutions demonstrate how nucleotide-level variants can propagate from codon changes to predicted alterations in protein sequence.
 
 ### Interpretation
 

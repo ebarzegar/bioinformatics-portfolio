@@ -1,0 +1,9 @@
+label,organism,accession,status,length,source,selection_note
+Homo_sapiens,Homo sapiens,P60174,reviewed,249,UniProtKB,Canonical human cytosolic TPI
+Oryctolagus_cuniculus,Oryctolagus cuniculus,P00939,reviewed,249,UniProtKB,Canonical rabbit TPI
+Mus_musculus,Mus musculus,P17751,reviewed,249,UniProtKB,Canonical mouse TPI
+Arabidopsis_thaliana,Arabidopsis thaliana,P48491,reviewed,254,UniProtKB,Cytosolic isoform selected instead of chloroplast isoform
+Brettanomyces_bruxellensis,Dekkera bruxellensis,A0A3F2Y7F9,unreviewed,247,UniProtKB,Current record uses Dekkera bruxellensis/Brettanomyces custersii naming
+Dickeya_paradisiaca_Ech703,Musicola paradisiaca strain Ech703,C6C5C4,unreviewed,255,UniProtKB,Current taxonomy lists Dickeya paradisiaca as synonym
+Salmonella_enterica,Salmonella enterica subsp. enterica serovar Typhimurium LT2,NP_462962.1,RefSeq,255,NCBI Protein,Complete reference protein
+Staphylococcus_aureus,Staphylococcus aureus,P68823,reviewed,253,UniProtKB,Canonical species-level TPI

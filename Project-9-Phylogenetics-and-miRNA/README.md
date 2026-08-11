@@ -45,7 +45,7 @@ python scripts/differential_expression.py
 The project itself is already populated with the generated results; running the scripts is optional.
 
 ## Interpretation
-See [RESULTS.md](RESULTS.md) for figures, captions, numerical results, comparison with the original publication, and limitations.
+See [results.md](./results.md) for figures, captions, numerical results, comparison with the original publication, and limitations.
 
 ## References
 

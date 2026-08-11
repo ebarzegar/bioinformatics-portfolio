@@ -16,10 +16,9 @@ UPGMA phylogenetic tree of TPI proteins.** Human and rabbit TPI show the closest
 An exhaustive Maximum-Parsimony search evaluated all 10,395 possible unrooted binary topologies for eight taxa. The best topology had a parsimony score of **452 amino-acid state changes**.
 
 Human and rabbit were recovered as sister taxa, with mouse joining the mammalian group. *Dickeya/Musicola paradisiaca* Ech703 and *Salmonella enterica* were also recovered as sister taxa.
+<img width="1980" height="1210" alt="TPI_parsimony_tree" src="https://github.com/user-attachments/assets/7c900c6d-9294-4de7-b598-babfbc96ebc0" />
 
-![Maximum-Parsimony phylogenetic tree of TPI proteins](results/TPI_parsimony_tree.png)
-
-**Figure 2. Maximum-Parsimony phylogenetic tree of TPI proteins.** The tree represents the topology requiring the minimum number of amino-acid state changes. Branch lengths are not proportional to evolutionary distance.
+**Maximum-Parsimony phylogenetic tree of TPI proteins.** The tree represents the topology requiring the minimum number of amino-acid state changes. Branch lengths are not proportional to evolutionary distance.
 
 ### Interpretation
 
@@ -52,21 +51,16 @@ No probe remained significant at **BH-FDR < 0.05** after correction for multiple
 
 ### Differential-Expression Visualization
 
-![Volcano plot of GSE43867 miRNA differential expression](results/miRNA_volcano_plot.png)
-
-**Figure 3. Volcano plot of miRNA differential expression.** All 671 probes are shown according to responder-versus-non-responder log fold change and statistical significance. Highlighted points represent miRNAs meeting the nominal criteria of `P < 0.05` and `|logFC| > 1`.
+<img width="1760" height="1320" alt="miRNA_volcano_plot" src="https://github.com/user-attachments/assets/730183b5-2566-41f2-8f79-9bb605afbbce" />
+**Volcano plot of miRNA differential expression.** All 671 probes are shown according to responder-versus-non-responder log fold change and statistical significance. Highlighted points represent miRNAs meeting the nominal criteria of `P < 0.05` and `|logFC| > 1`.
 
 ### Expression Patterns
 
 Expression patterns of the most variable or differentially expressed miRNAs were further visualized using a heatmap, while the three selected candidates were examined directly across responder and non-responder samples.
-
-![Heatmap of miRNA expression](results/miRNA_heatmap_top20.png)
-
-**Figure 4. Heatmap of miRNA expression patterns.** Expression profiles illustrate variation among chemotherapy responders and non-responders across the selected miRNAs.
-
-![Expression of selected miRNAs](results/selected_miRNA_expression.png)
-
-**Figure 5. Expression of selected candidate miRNAs.** Expression distributions of hsa-miR-592, hsa-miR-642, and hsa-miR-483-5p are shown between chemotherapy responders and non-responders.
+<img width="2640" height="1540" alt="miRNA_heatmap_top20" src="https://github.com/user-attachments/assets/9a4e8e65-a144-4c43-b386-c40ea4cf6881" />
+**Heatmap of miRNA expression patterns.** Expression profiles illustrate variation among chemotherapy responders and non-responders across the selected miRNAs.
+<img width="2772" height="1056" alt="selected_miRNA_expression" src="https://github.com/user-attachments/assets/a3bc4dd3-c085-4c6e-8b7e-5831faa61e09" />
+**Expression of selected candidate miRNAs.** Expression distributions of hsa-miR-592, hsa-miR-642, and hsa-miR-483-5p are shown between chemotherapy responders and non-responders.
 
 ---
 

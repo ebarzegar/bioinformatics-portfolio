@@ -8,9 +8,8 @@ Eight TPI amino-acid sequences were aligned into 280 columns. The shortest mamma
 
 The UPGMA tree was constructed from pairwise amino-acid p-distances calculated from the TPI alignment.
 
-![UPGMA phylogenetic tree of TPI proteins](results/TPI_UPGMA_tree.png)
-
-**Figure 1. UPGMA phylogenetic tree of TPI proteins.** Human and rabbit TPI show the closest relationship, with mouse joining the mammalian cluster. *Dickeya/Musicola paradisiaca* Ech703 and *Salmonella enterica* also cluster together, reflecting their relatively similar TPI sequences.
+**<img width="1980" height="1210" alt="TPI_UPGMA_tree" src="https://github.com/user-attachments/assets/6b941ca3-c5fc-4113-a6b0-50d1a8f7ad36" />
+UPGMA phylogenetic tree of TPI proteins.** Human and rabbit TPI show the closest relationship, with mouse joining the mammalian cluster. *Dickeya/Musicola paradisiaca* Ech703 and *Salmonella enterica* also cluster together, reflecting their relatively similar TPI sequences.
 
 ### Maximum-Parsimony Phylogeny
 

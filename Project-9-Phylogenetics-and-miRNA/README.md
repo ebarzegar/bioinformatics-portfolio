@@ -42,7 +42,7 @@ python scripts/phylogenetic_analysis.py
 python scripts/differential_expression.py
 ```
 
-The project itself is already populated with the generated results; running the scripts is optional.
+The project itself is already populated with the generated results.
 
 ## Interpretation
 See [results.md](./results.md) for figures, captions, numerical results, comparison with the original publication, and limitations.

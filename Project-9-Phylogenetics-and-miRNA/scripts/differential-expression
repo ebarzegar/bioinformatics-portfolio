@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Reanalyse submitter-normalized GSE43867 values with a two-group t test."""
+from pathlib import Path
+import io
+import re
+import numpy as np
+import pandas as pd
+from scipy.stats import ttest_ind
+import matplotlib.pyplot as plt
+
+ROOT = Path(__file__).resolve().parents[1]
+SOFT = ROOT / "data" / "geo" / "GSE43867_family.soft.gz"
+RESULTS = ROOT / "results"
+DATA = ROOT / "data"
+
+
+def bh_adjust(p):
+    p = np.asarray(p, float); n = len(p); order = np.argsort(p); out = np.empty(n); prev = 1.0
+    for rank, idx in reversed(list(enumerate(order, 1))):
+        prev = min(prev, p[idx] * n / rank); out[idx] = prev
+    return out
+
+
+def parse_soft():
+    import gzip
+    with gzip.open(SOFT, "rt", errors="replace") as f: text = f.read()
+    platform = text.split("!platform_table_begin\n", 1)[1].split("\n!platform_table_end", 1)[0]
+    annotations = pd.read_csv(io.StringIO(platform), sep="\t")[["ID", "miRNA_ID", "Type"]]
+    samples, values = [], []
+    for block in text.split("^SAMPLE = ")[1:]:
+        gsm = block.splitlines()[0].strip()
+        title = re.search(r"!Sample_title = (.+)", block)
+        response = re.search(r"!Sample_characteristics_ch1 = response to i chemotherapy: (.+)", block)
+        if not (title and response and "!sample_table_begin" in block): continue
+        outcome = response.group(1).strip()
+        group = "Responder" if outcome in {"complete response", "partial response"} else "Non-responder"
+        table = block.split("!sample_table_begin\n", 1)[1].split("\n!sample_table_end", 1)[0]
+        series = pd.read_csv(io.StringIO(table), sep="\t").set_index("ID_REF")["VALUE"].astype(float).rename(gsm)
+        values.append(series); samples.append({"GSM": gsm, "title": title.group(1), "clinical_response": outcome, "group": group})
+    return pd.DataFrame(samples), pd.concat(values, axis=1), annotations
+
+
+def analyse(samples, expr, annotations):
+    responders = samples.loc[samples.group == "Responder", "GSM"].tolist()
+    nonresponders = samples.loc[samples.group == "Non-responder", "GSM"].tolist()
+    rows = []
+    for assay, row in expr.iterrows():
+        a, b = row[responders], row[nonresponders]
+        t, p = ttest_ind(a, b, equal_var=True)
+        rows.append((assay, a.mean() - b.mean(), t, p, a.mean(), b.mean()))
+    out = pd.DataFrame(rows, columns=["assay", "logFC_responder_minus_nonresponder", "t_statistic", "P.Value", "mean_responder", "mean_nonresponder"])
+    out["adj.P.Val"] = bh_adjust(out["P.Value"])
+    out = out.merge(annotations, left_on="assay", right_on="ID", how="left").drop(columns="ID")
+    out["passes_historical_cutoff"] = (out["P.Value"] < 0.05) & (out["logFC_responder_minus_nonresponder"].abs() > 1)
+    return out.sort_values("P.Value"), responders, nonresponders
+
+
+def volcano(out):
+    x = out["logFC_responder_minus_nonresponder"]; y = -np.log10(out["P.Value"].clip(lower=1e-300)); sig = out["passes_historical_cutoff"]
+    fig, ax = plt.subplots(figsize=(8, 6)); ax.scatter(x[~sig], y[~sig], s=18, c="#94a3b8", alpha=.65, edgecolors="none")
+    ax.scatter(x[sig], y[sig], s=42, c="#e11d48", alpha=.9, edgecolors="white", linewidth=.4)
+    ax.axvline(-1, ls="--", color="#64748b"); ax.axvline(1, ls="--", color="#64748b"); ax.axhline(-np.log10(.05), ls="--", color="#64748b")
+    for _, r in out[sig].iterrows(): ax.annotate(r["miRNA_ID"], (r["logFC_responder_minus_nonresponder"], -np.log10(r["P.Value"])), xytext=(4,4), textcoords="offset points", fontsize=9)
+    ax.set(xlabel="logFC (responder - non-responder)", ylabel="-log10(P-value)", title="GSE43867 differential miRNA expression")
+    fig.tight_layout(); fig.savefig(RESULTS / "miRNA_volcano_plot.png", dpi=220); plt.close(fig)
+
+
+def heatmap(out, expr, samples):
+    ids = out.head(20)["assay"].tolist(); labels = out.head(20)["miRNA_ID"].fillna(out.head(20)["assay"]).tolist()
+    order = samples.sort_values("group", ascending=False)["GSM"].tolist(); z = expr.loc[ids, order]
+    z = z.sub(z.mean(axis=1), axis=0).div(z.std(axis=1).replace(0, 1), axis=0)
+    fig, ax = plt.subplots(figsize=(12, 7)); im = ax.imshow(z, aspect="auto", cmap="RdBu_r", vmin=-2.5, vmax=2.5)
+    ax.set_yticks(range(len(labels)), labels=labels, fontsize=8); ax.set_xticks([]); ax.set_xlabel("48 responders                                      38 non-responders")
+    ax.set_title("Top 20 nominally associated miRNAs (row z-scores)"); fig.colorbar(im, ax=ax, shrink=.75, label="z-score")
+    fig.tight_layout(); fig.savefig(RESULTS / "miRNA_heatmap_top20.png", dpi=220); plt.close(fig)
+
+
+def selected_boxplots(out, expr, samples):
+    selected = out[out["passes_historical_cutoff"]].copy(); groups = samples.set_index("GSM")["group"]
+    fig, axes = plt.subplots(1, len(selected), figsize=(4.2*len(selected), 4.8), squeeze=False)
+    for ax, (_, r) in zip(axes[0], selected.iterrows()):
+        vals = [expr.loc[r.assay, groups[groups == g].index].values for g in ["Responder", "Non-responder"]]
+        bp = ax.boxplot(vals, labels=["Responder", "Non-responder"], patch_artist=True, widths=.6)
+        for patch, color in zip(bp["boxes"], ["#2563eb", "#f97316"]): patch.set_facecolor(color); patch.set_alpha(.7)
+        rng = np.random.default_rng(7); [ax.scatter(np.full(len(v), i+1)+rng.normal(0,.045,len(v)), v, s=10, alpha=.4, color="#334155") for i,v in enumerate(vals)]
+        ax.set_title(f"{r.miRNA_ID}\nlogFC={r['logFC_responder_minus_nonresponder']:.2f}, P={r['P.Value']:.3g}"); ax.tick_params(axis="x", rotation=15)
+    axes[0][0].set_ylabel("Submitter-normalized expression")
+    fig.tight_layout(); fig.savefig(RESULTS / "selected_miRNA_expression.png", dpi=220); plt.close(fig)
+
+
+def main():
+    RESULTS.mkdir(exist_ok=True); samples, expr, annotations = parse_soft(); out, responders, nonresponders = analyse(samples, expr, annotations)
+    samples.to_csv(DATA / "GSE43867_sample_metadata.csv", index=False)
+    out.to_csv(RESULTS / "differential_expression_results.csv", index=False)
+    out[out["passes_historical_cutoff"]].to_csv(RESULTS / "significant_miRNAs_historical_cutoff.csv", index=False)
+    volcano(out); heatmap(out, expr, samples); selected_boxplots(out, expr, samples)
+    (RESULTS / "miRNA_summary.txt").write_text(
+        f"Samples: {len(samples)}\nResponders: {len(responders)}\nNon-responders: {len(nonresponders)}\n"
+        f"Probes tested: {len(out)}\nHistorical cutoff hits: {out.passes_historical_cutoff.sum()}\n"
+        f"BH-FDR < 0.05 hits: {(out['adj.P.Val'] < .05).sum()}\n")
+
+
+if __name__ == "__main__": main()
